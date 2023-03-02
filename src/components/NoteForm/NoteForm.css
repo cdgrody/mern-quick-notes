@@ -1,0 +1,17 @@
+.note-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.note-form > * {
+    height: 20%;
+}
+
+.add-note-button {
+    width: 15%;
+}
+
+.add-note-text {
+    width: 40%;
+}
