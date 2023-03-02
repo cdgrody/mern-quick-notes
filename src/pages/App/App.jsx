@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { getUser } from '../../utilities/users-service'
 import { getNotes } from '../../utilities/notes-service'
@@ -12,7 +12,15 @@ import NavBar from '../../components/NavBar/NavBar'
 
 export default function App() {
   const [ user, setUser ] = useState(getUser())
-  const [ notes, setNotes ] = useState(getNotes())
+  const [ notes, setNotes ] = useState([])
+
+  useEffect(() => {
+    async function fetchNotes() {
+      const notes = await getNotes();
+      setNotes(notes)
+    }
+    fetchNotes();
+  }, [])
 
   return (
     <main className="App">
@@ -20,7 +28,7 @@ export default function App() {
         user ?
         <>
           <NavBar user={user} setUser={setUser} />
-          <Routes>
+          <Routes notes={notes}>
             <Route path="/orders/new" element={<NewOrderPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="" element={<NotesList notes={notes}/>} />

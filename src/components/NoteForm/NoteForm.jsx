@@ -31,8 +31,6 @@ export default function NoteForm() {
                 <input className="add-note-text" placeholder="Write note here..." onChange={handleChange} value={newNote.text}/>
                 <button className="add-note-button" type="submit" onClick={handleSubmit}>Add Note</button>
             </form>
-            <hr></hr>
-
         </>
     )
 }

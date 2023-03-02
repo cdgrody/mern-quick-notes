@@ -1,5 +1,7 @@
-export default function NoteCard() {
+export default function NoteCard({ note, idx }) {
     return (
-        <div>NoteCard</div>
+        <li>
+            {note.text}, {note.createdAt}
+        </li>
     )
 }
