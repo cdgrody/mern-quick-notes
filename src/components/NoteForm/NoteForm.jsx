@@ -32,7 +32,6 @@ export default function NoteForm() {
                 <button className="add-note-button" type="submit" onClick={handleSubmit}>Add Note</button>
             </form>
             <hr></hr>
-            <h2>Previous Notes</h2>
 
         </>
     )
