@@ -1,4 +1,5 @@
 const Note = require('../../models/note')
+const User = require('../../models/user')
 
 module.exports = {
     create,
@@ -6,20 +7,18 @@ module.exports = {
 }
 
 async function create(req, res) {
-    console.log('create function -------------------------------')
-    console.log(req.body)
     try {
+        console.log(req.body)
+        console.log(User.find({}))
+        console.log('create function >>>>>>>>>>>>>>')
         const note = await Note.create(req.body)
         res.json(note)
     } catch (err) {
         res.status(400).json(err)
     }
-    console.log('done? -------------------------------')
 }
 
 async function index(req, res) {
-    console.log('index function -------------------------------')
-    console.log(req.body)
     try {
         const note = await Note.find({});
         console.log(note)
@@ -27,5 +26,4 @@ async function index(req, res) {
     } catch (err) {
         res.status(400).json(err)
     }
-    console.log('done? -------------------------------')
 }
