@@ -12,6 +12,12 @@ export async function login(userData) {
     return getUser()
 }
 
+export async function addNote(noteData) {
+    console.log('NewNote Entered--------------------')
+    console.log(noteData)
+    usersAPI.addNote(noteData)
+}
+
 export function getToken() {
     const token = localStorage.getItem('token')
     if(!token) return null

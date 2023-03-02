@@ -10,9 +10,11 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
     }
     const token = getToken()
     if(token) {
-        options.headers ||= {}
-        options.headers.Authorization = `Bearer ${token}`
+      options.headers ||= {}
+      options.headers.Authorization = `Bearer ${token}`
     }
+    console.log(options)
+    console.log('we stuck here...')
     const res = await fetch(url, options);
     // res.ok will be false if the status code set is not 2xx
     if (res.ok) return res.json();
