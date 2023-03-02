@@ -8,13 +8,20 @@ export default function NoteForm() {
     })
 
     function handleChange(evt) {
-        setNewNote(evt.target.value)
+        // alert(evt.target.text)
+        const newNoteForm = {
+            text: evt.target.value,
+        }
+        // alert(newNoteForm.text)
+        setNewNote(newNoteForm)
     }
 
     function handleSubmit(evt) {
         evt.preventDefault();
         notesService.addNote(newNote);
-        setNewNote("")
+        setNewNote({
+            text: ''
+        })
     }
 
     return (

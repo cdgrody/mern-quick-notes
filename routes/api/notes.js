@@ -4,7 +4,6 @@ const notesCtrl = require('../../controllers/api/notes');
 // const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 // POST /api/notes
-console.log('were in the router now')
 
 router.post('/', notesCtrl.create);
 // router.post('/login', usersCtrl.login);
