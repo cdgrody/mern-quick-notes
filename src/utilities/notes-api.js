@@ -15,11 +15,9 @@ export async function addNote(noteData) {
 }
 
 export async function getNotes(id) {
-    // console.log('were in the getNote api now')
     const options = {method: 'GET'};
-    // console.log(options)
     const res = await fetch(`${BASE_URL}/${id}`, options);
-    // console.log('that res', res)
+    console.log('that res', res)
     if (res.ok) return res.json();
     throw new Error('Bad Request');
 }

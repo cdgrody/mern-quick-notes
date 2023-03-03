@@ -2,7 +2,7 @@ import './NoteForm.css'
 import { useState } from "react";
 import * as notesService from '../../utilities/notes-service';
 
-export default function NoteForm({ user }) {
+export default function NoteForm({ user, handleNoteAdded }) {
     const [newNote, setNewNote] = useState({
         text: '',
         user: user
@@ -16,14 +16,15 @@ export default function NoteForm({ user }) {
         setNewNote(newNoteForm)
     }
 
-    function handleSubmit(evt) {
+    async function handleSubmit(evt) {
         evt.preventDefault();
-        notesService.addNote(newNote);
+        const addedNote = await notesService.addNote(newNote);
         setNewNote({
             text: '',
             user: user
         })
-    }
+        handleNoteAdded(addedNote)
+      }
 
     return (
         <>
