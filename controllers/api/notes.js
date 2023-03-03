@@ -17,9 +17,7 @@ async function create(req, res) {
 
 async function index(req, res) {
     try {
-        const user = await User.find({ _id: req.params.user })
-        const userId = user[0]._id
-        const note = await Note.find({ user: userId });
+        const note = await Note.find({ user: req.user });
         res.json(note)
     } catch (err) {
         res.status(400).json(err)

@@ -10,5 +10,6 @@ export function login(credentials) {
 }
 
 export function checkToken() {
+    console.log('base_url ^^^^^^^^^^^^^^^^^^^^^')
     return sendRequest(`${BASE_URL}/check-token`)
 }
