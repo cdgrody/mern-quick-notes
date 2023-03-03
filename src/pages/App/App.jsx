@@ -16,7 +16,7 @@ export default function App() {
 
   useEffect(() => {
     async function fetchNotes() {
-      const notes = await getNotes();
+      const notes = await getNotes(user._id);
       setNotes(notes)
     }
     fetchNotes();
@@ -40,5 +40,4 @@ export default function App() {
     </main>
   );
 }
-
 

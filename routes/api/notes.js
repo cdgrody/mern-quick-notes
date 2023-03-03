@@ -6,7 +6,7 @@ const notesCtrl = require('../../controllers/api/notes');
 // POST /api/notes
 
 router.post('/', notesCtrl.create);
-router.get('/', notesCtrl.index);
+router.get('/:user', notesCtrl.index);
 // router.post('/login', usersCtrl.login);
 // router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken)
 

@@ -5,7 +5,7 @@ export async function addNote(noteData) {
     return note
 }
 
-export async function getNotes() {
-    const notes = await notesAPI.getNotes()
+export async function getNotes(id) {
+    const notes = await notesAPI.getNotes(id)
     return notes
 }
