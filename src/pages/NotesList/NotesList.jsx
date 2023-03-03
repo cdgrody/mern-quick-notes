@@ -16,7 +16,7 @@ export default function NotesList({ notes, user, handleNoteAdded }) {
           ))}
         </ul>
       ) : (
-        <div>No notes</div>
+        <div>No Notes Yet</div>
       )}
     </>
   );
