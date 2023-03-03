@@ -22,6 +22,10 @@ export default function App() {
     fetchNotes();
   }, [])
 
+  function handleNoteAdded(newNote) {
+    setNotes(notes => [...notes, newNote]);
+  }
+
   return (
     <main className="App">
       {
@@ -31,7 +35,7 @@ export default function App() {
           <Routes notes={notes}>
             <Route path="/orders/new" element={<NewOrderPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
-            <Route path="" element={<NotesList notes={notes} user={user}/>} />
+            <Route path="" element={<NotesList notes={notes} user={user} handleNoteAdded={handleNoteAdded}/>} />
           </Routes>
         </>
         :
